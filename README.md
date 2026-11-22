@@ -15,7 +15,7 @@ Seed kuralı (ödev Bölüm 3): öğrenci numarasının son 5 hanesi + 2026.
 | İlkin Urcan | 244329078 | 31104 | Morfoloji + distance transform + watershed (temas eden hücreleri ayırma) | `src/experiments/ilkin.py` |
 | Aslıhan Semiz Varlı | 254329024 | 31050 | K-means segmentasyonu + LoG blob tespiti | `src/experiments/aslihan.py` |
 
-**Tek notebook:** [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main.ipynb) `main.ipynb`. Bütün üyelerin deneyleri, çapraz seed analizi, **5. yöntem**, kilit, test ve zamansal analiz bu notebook'ta çalışır.
+**Tek notebook:** [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main_grup.ipynb) `main_grup.ipynb`. Bütün üyelerin deneyleri, çapraz seed analizi, **5. yöntem**, kilit, test ve zamansal analiz bu notebook'ta çalışır.
 Her üye yalnızca kendi `src/experiments/<üye>.py` dosyasındaki deney listesini düzenler; böylece katkılar commit geçmişinde ayrı görünür.
 
 ## Çalışmanın sorusu
@@ -26,7 +26,7 @@ düşük ve birbirine yakın hata veren pipeline olarak seçilir.
 
 ## Akış
 1. **Seçim** (`select_frames.py`): 4 seed için kareler, yöntem geliştirmeden önce seçilip ilk commit ile kaydedilir.
-2. **Üye deneyleri** (`main.ipynb` Bölüm 4): Her üye kendi seed'inin geliştirme kümesinde kontrollü deneyler yapar, en iyi 3 adayı kendi
+2. **Üye deneyleri** (`main_grup.ipynb` Bölüm 4): Her üye kendi seed'inin geliştirme kümesinde kontrollü deneyler yapar, en iyi 3 adayı kendi
    doğrulama kümesinde karşılaştırır ve yöntemini `seeds/<seed>/method_<üye>.json` dosyasına yazar.
 3. **Çapraz seed matrisi:** 4 üye yöntemi ve baseline, 4 seed'in doğrulama kümelerinde değerlendirilir.
 4. **5. yöntem:** Birleşik adaylar ortak geliştirme havuzunda ayarlanır; 4 üye yöntemi ve medyan topluluğu ile birlikte
@@ -53,7 +53,7 @@ düşük ve birbirine yakın hata veren pipeline olarak seçilir.
   kare seçiminin etkisini ölçer; sekanslar arası farkı (01 → 02) ortadan kaldırmaz.
 
 ## Kurulum ve çalıştırma
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main.ipynb) linkiyle `main.ipynb` Colab'da açılır. İlk hücre repoyu klonlar,
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main_grup.ipynb) linkiyle `main_grup.ipynb` Colab'da açılır. İlk hücre repoyu klonlar,
 ikinci hücre veri setini resmî adresten `data/` klasörüne indirir. Yerelde çalıştırmak için `pip install -r requirements.txt` yeterlidir.
 
 Notebook **iki aşamada** çalışır:
@@ -86,7 +86,7 @@ Test referansları (sekans 02) kodla korunur: kilit dosyası yoksa ya da commit 
 
 | Dosya | İçerik |
 |---|---|
-| `main.ipynb` | Bütün çalışmayı yapan tek notebook |
+| `main_grup.ipynb` | Bütün çalışmayı yapan tek notebook |
 | `data_overview.csv` | Tüm karelerin boyut, tip ve yoğunluk istatistikleri |
 | `selected_frames.csv` | 4 seed'in seçilen kareleri (Tablo 1; referans sayısı içermez) |
 | `dev_val_references.csv` | Geliştirme/doğrulama referans hücre sayıları |
