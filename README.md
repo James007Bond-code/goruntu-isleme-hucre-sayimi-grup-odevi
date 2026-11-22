@@ -37,6 +37,30 @@ düşük ve birbirine yakın hata veren pipeline olarak seçilir.
    ve **ayrı bir commit** ile kaydedilir.
 6. **Test ve zamansal analiz:** Referanslar ilk kez kilitten sonra okunur.
 
+## Sonuçlar (özet)
+**5. yöntem (M5):** CLAHE (clip 3, 8×8) → Gauss 5×5 → Otsu → Close→Open 5×5 → distance transform + watershed (min_dist 16) → alan filtresi (≥150 px).
+Ortak havuzdaki tarama, İlkin'in W06 pipeline'ıyla aynı konfigürasyona ulaşmıştır.
+
+| Yöntem | 4 seed ort. doğrulama MAE (sekans 01) | Test MAE (60 kare, sekans 02) | Test bias |
+|---|---|---|---|
+| Baseline (Otsu + CC) | 6.15 | 11.70 | −11.70 |
+| M_süleyman (CLAHE + Gauss + adaptif) | 1.80 | 12.40 | −12.40 |
+| M_seda (HE + Gauss + alan filtresi) | 4.06 | **1.72** | +0.28 |
+| M_ilkin (Otsu + morfoloji + watershed) | 1.26 | 4.55 | +4.12 |
+| M_aslihan (LoG blob) | 3.45 | 22.53 | −22.53 |
+| **M5 (seçilen)** | **1.25** | **4.55** | +4.12 |
+
+Tablolar: `validation_results.csv` (Tablo 3), `test_results.csv` (Tablo 4), `test_summary.csv` (Tablo 5; görülmemiş karelerde M5 MAE 4.18).
+
+**Başlıca bulgular**
+- 5. yöntem test MAE'sini baseline'a göre 11.70'ten 4.55'e düşürmüştür. Eksik sayım (negatif bias) watershed ile giderilmiş, testte hafif fazla sayıma (+4.1) dönmüştür.
+- **Sekanslar arası kayma:** Sekans 02 belirgin biçimde daha koyudur (`data_overview.csv`: ortalama yoğunluk 1.7–2.3'e karşı 3.6–4.2, p99 28–34'e karşı 61–74).
+  Sabit eşik/parametre kullanan yöntemler (adaptif eşik C değeri, LoG mutlak eşiği) testte çökmüştür. Histogram eşitleme parlaklığı
+  normalize ettiği için Seda'nın yöntemi doğrulamada en kararsızken testte en iyi sonucu vermiştir.
+- 4 seed'li çapraz doğrulama kare seçimine bağlı aşırı uyumu yakalamıştır (ör. Seda'nın yöntemi bir seed'de MAE 10.75). Ancak bütün seed'lerin
+  geliştirme/doğrulama kareleri sekans 01'den geldiği için **sekanslar arası kaymayı yakalayamamıştır.** Seçim, önceden sabitlenen kurala göre
+  yapılmış ve kilit sonrası değiştirilmemiştir.
+
 ## Sızıntı önlemleri ve sınırlamalar
 - **Seed 14048'in test kareleri görülmüştür.** Bu seed bireysel çalışmada
   ([ayrı repo](https://github.com/James007Bond-code/goruntu-isleme-hucre-sayimi-254312022-suleymanBalsak)) kilitlenip test edilmiştir.
