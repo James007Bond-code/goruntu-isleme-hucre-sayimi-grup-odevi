@@ -21,5 +21,9 @@ EXPERIMENTS = [
     ("S06", "Adaptif C=-16", "S02", "adapt_c", make(E_REF, adapt_c=-16)),
     ("S07", "CLAHE clip=2.0", "S02", "clahe_clip", make(E_REF, clahe_clip=2.0)),
     ("S08", "Gauss 3×3", "S02", "filter_k", make(E_REF, filter_k=3)),
-    # TODO (Süleyman): min_area, CLAHE grid ve adaptif + opening gibi deneylerle genişlet
+    ("S09", "Adaptif C=-20", "S06", "adapt_c", make(E_REF, adapt_c=-20)),
+    ("S10", "Adaptif C=-24", "S06", "adapt_c", make(E_REF, adapt_c=-24)),
+    ("S11", "C=-16 + blok=51", "S06", "adapt_block", make(E_REF, adapt_c=-16, adapt_block=51)),
+    ("S12", "C=-16 + blok=91", "S06", "adapt_block", make(E_REF, adapt_c=-16, adapt_block=91)),
+    ("S13", "C=-16 + Opening 3×3", "S06", "morfoloji", make(E_REF, adapt_c=-16, morph="opening", morph_k=3)),
 ]

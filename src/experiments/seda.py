@@ -21,5 +21,9 @@ EXPERIMENTS = [
     ("D07", "Stretch + Bilateral 7 (σ=50)", "D02", "filtre", make(E_REF, filter="bilateral", filter_k=7, bil_sigma=50)),
     ("D08", "Stretch + keskinleştirme", "D02", "filtre", make(E_REF, filter="sharpen")),
     ("D09", "Stretch + Median 5×5 + Opening 5×5", "D06", "morfoloji", make(E_REF, filter="median", filter_k=5, morph="opening", morph_k=5)),
-    # TODO (Seda): stretch yüzdelikleri, HM referans seçimi ve median + closing gibi deneylerle genişlet
+    ("D10", "Orijinal + keskinleştirme (stretch yok)", "D08", "yoğunluk", make(BASELINE, filter="sharpen")),
+    ("D11", "Stretch + keskinleştirme + Opening 3×3", "D08", "morfoloji", make(E_REF, filter="sharpen", morph="opening", morph_k=3)),
+    ("D12", "Stretch + keskinleştirme, min_area=150", "D08", "min_area", make(E_REF, filter="sharpen", min_area=150)),
+    ("D13", "Histogram eşitleme + Gauss 5×5", "D03", "filtre", make(BASELINE, intensity="hist_eq", filter="gaussian", filter_k=5)),
+    ("D14", "HE + Gauss 5×5, min_area=150", "D13", "min_area", make(BASELINE, intensity="hist_eq", filter="gaussian", filter_k=5, min_area=150)),
 ]

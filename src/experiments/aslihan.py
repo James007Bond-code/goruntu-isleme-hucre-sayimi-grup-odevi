@@ -21,5 +21,9 @@ EXPERIMENTS = [
     ("K07", "LoG eşik 0.10", "K06", "log_thresh", make(E_REF, segmentation="none", separation="log", log_thresh=0.10)),
     ("K08", "LoG σ 8–20", "K06", "log_sigma", make(E_REF, segmentation="none", separation="log", log_min_sigma=8, log_max_sigma=20)),
     ("K09", "Otsu maskesi içindeki LoG blob'ları", "K06", "maske", make(E_REF, segmentation="otsu", separation="log")),
-    # TODO (Aslıhan): k-means + watershed ve LoG num_sigma gibi deneylerle genişlet
+    ("K10", "LoG eşik 0.15, maskesiz", "K07", "log_thresh", make(E_REF, segmentation="none", separation="log", log_thresh=0.15)),
+    ("K11", "LoG eşik 0.20, maskesiz", "K07", "log_thresh", make(E_REF, segmentation="none", separation="log", log_thresh=0.20)),
+    ("K12", "LoG σ 8–20, eşik 0.10", "K08", "log_thresh", make(E_REF, segmentation="none", separation="log", log_min_sigma=8, log_max_sigma=20, log_thresh=0.10)),
+    ("K13", "K-means k=2 + watershed (min_dist=16)", "K02", "ayırma", make(E_REF, segmentation="kmeans", kmeans_k=2, separation="watershed", ws_min_dist=16)),
+    ("K14", "K-means k=2 + Opening 5×5", "K02", "morfoloji", make(E_REF, segmentation="kmeans", kmeans_k=2, morph="opening", morph_k=5)),
 ]
