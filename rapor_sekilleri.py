@@ -17,7 +17,8 @@ import zipfile
 
 import matplotlib
 
-matplotlib.use("Agg")
+if __name__ == "__main__":          # komut satırından: ekransız; notebook'tan içe aktarılınca Colab'ın çizim ayarı korunur
+    matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
@@ -26,7 +27,8 @@ from scipy import ndimage  # noqa: E402
 from skimage.segmentation import find_boundaries  # noqa: E402
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+if __name__ == "__main__":
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from src import config as C  # noqa: E402
 from src.pipeline import BASELINE, make, run_pipeline  # noqa: E402
 
