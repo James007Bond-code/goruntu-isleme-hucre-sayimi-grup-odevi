@@ -1,0 +1,6 @@
+data/
+*.zip
+figures_report/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc

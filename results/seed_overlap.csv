@@ -1,0 +1,19 @@
+seed_a,group_a,seed_b,group_b,n_ortak,ortak_kareler
+14048,Test,14034,Test,5,38 39 40 58 59
+14048,Validation,14034,Development,2,5 22
+14048,Development,14034,Validation,0,
+14048,Test,31104,Test,1,38
+14048,Validation,31104,Development,0,
+14048,Development,31104,Validation,0,
+14048,Test,31050,Test,0,
+14048,Validation,31050,Development,0,
+14048,Development,31050,Validation,0,
+14034,Test,31104,Test,6,36 37 38 68 69 70
+14034,Validation,31104,Development,0,
+14034,Development,31104,Validation,1,19
+14034,Test,31050,Test,4,69 70 71 72
+14034,Validation,31050,Development,0,
+14034,Development,31050,Validation,1,22
+31104,Test,31050,Test,5,11 12 13 69 70
+31104,Validation,31050,Development,0,
+31104,Development,31050,Validation,1,39
