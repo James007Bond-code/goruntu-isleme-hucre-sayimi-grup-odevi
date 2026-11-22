@@ -1,0 +1,13 @@
+Parametreler,Pool_MAE,Pool_RMSE
+"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",1.679,2.027
+"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=18, min_area=150",1.821,2.163
+"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=14, min_area=150",2.179,2.693
+"stretch_p=[1, 99.8], morph_k=5, ws_min_dist=18, min_area=150",2.964,3.396
+"stretch_p=[1, 99.8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",4.214,5.934
+"stretch_p=[1, 99.8], filter_k=5, morph_k=5, ws_min_dist=14, min_area=150",4.5,5.825
+"stretch_p=[1, 99.8], filter_k=5, morph_k=5, ws_min_dist=18, min_area=150",4.571,6.089
+"stretch_p=[1, 99.8], morph_k=5, ws_min_dist=16, min_area=150",4.714,4.986
+"stretch_p=[1, 99.8], morph_k=5, ws_min_dist=14, min_area=150",7.393,7.739
+"clahe_clip=3.0, clahe_grid=[8, 8], morph_k=5, ws_min_dist=18, min_area=150",121.643,144.164
+"clahe_clip=3.0, clahe_grid=[8, 8], morph_k=5, ws_min_dist=16, min_area=150",141.107,167.567
+"clahe_clip=3.0, clahe_grid=[8, 8], morph_k=5, ws_min_dist=14, min_area=150",164.393,195.955

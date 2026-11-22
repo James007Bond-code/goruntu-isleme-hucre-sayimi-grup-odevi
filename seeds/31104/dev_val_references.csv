@@ -1,0 +1,16 @@
+group,block,sequence,frame_idx,filename,seed,gt_count
+Development,0,01,1,t001.tif,31104,23
+Development,0,01,7,t007.tif,31104,23
+Development,0,01,8,t008.tif,31104,23
+Development,0,01,28,t028.tif,31104,24
+Development,0,01,31,t031.tif,31104,24
+Development,0,01,36,t036.tif,31104,24
+Development,0,01,38,t038.tif,31104,24
+Development,0,01,39,t039.tif,31104,24
+Development,0,01,82,t082.tif,31104,20
+Development,0,01,91,t091.tif,31104,20
+Validation,0,01,19,t019.tif,31104,23
+Validation,0,01,51,t051.tif,31104,23
+Validation,0,01,63,t063.tif,31104,21
+Validation,0,01,66,t066.tif,31104,21
+Validation,0,01,68,t068.tif,31104,21

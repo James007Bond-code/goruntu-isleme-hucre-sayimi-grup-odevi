@@ -1,0 +1,27 @@
+{
+  "name": "M_ilkin",
+  "owner": "ilkin",
+  "seed": 31104,
+  "experiment": "W06: Close→Open (sıra) + watershed",
+  "config": {
+    "intensity": "clahe",
+    "filter": "gaussian",
+    "segmentation": "otsu",
+    "morph": "close_open",
+    "separation": "watershed",
+    "min_area": 150,
+    "clahe_clip": 3.0,
+    "clahe_grid": [
+      8,
+      8
+    ],
+    "filter_k": 5,
+    "morph_k": 5,
+    "ws_min_dist": 16
+  },
+  "hm_ref": null,
+  "validation_own_seed": {
+    "Validation_MAE": 1.2,
+    "Validation_RMSE": 1.265
+  }
+}

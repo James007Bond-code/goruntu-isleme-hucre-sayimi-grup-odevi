@@ -1,0 +1,14 @@
+Uye,Seed,Deney_ID,Aciklama,Referans,Degisen,Yogunluk,Filtre,Segmentasyon,Morfoloji,Ayirma,Parametreler,Dev_MAE,Dev_RMSE,Dev_Bias,Sure_ms
+ilkin,31104,W01,Baseline: orijinal + Otsu + CC,-,-,none,none,otsu,none,cc,min_area=100,9.3,10.065,-9.3,12.0
+ilkin,31104,W02,CLAHE + Gauss5 + Otsu + Open→Close 5×5 + CC,W01,pipeline,clahe,gaussian,otsu,open_close,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, min_area=150",7.1,7.232,-7.1,23.1
+ilkin,31104,W03,W02 + watershed (min_dist=16),W02,ayırma,clahe,gaussian,otsu,open_close,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",1.5,1.761,-0.3,203.5
+ilkin,31104,W04,Watershed min_dist=10,W03,ws_min_dist,clahe,gaussian,otsu,open_close,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=10, min_area=150",4.4,4.775,4.4,203.9
+ilkin,31104,W05,Watershed min_dist=22,W03,ws_min_dist,clahe,gaussian,otsu,open_close,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=22, min_area=150",3.9,4.183,-3.9,232.6
+ilkin,31104,W06,Close→Open (sıra) + watershed,W03,morfoloji sırası,clahe,gaussian,otsu,close_open,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",1.4,1.673,0.4,305.3
+ilkin,31104,W07,SE 3×3 + watershed,W03,SE boyutu,clahe,gaussian,otsu,open_close,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=3, ws_min_dist=16, min_area=150",3.2,3.899,3.2,213.4
+ilkin,31104,W08,Erosion 5×5 + CC (ayırma için aşındırma),W02,morfoloji,clahe,gaussian,otsu,erosion,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, min_area=150",7.7,7.842,-7.7,22.3
+ilkin,31104,W09,"Adaptif(71,-12) + watershed",W03,segmentasyon,clahe,gaussian,adaptive,none,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-12, morph_k=5, ws_min_dist=16, min_area=100",42.7,42.901,42.7,230.5
+ilkin,31104,W10,Close→Open SE 7×7 + watershed,W06,SE boyutu,clahe,gaussian,otsu,close_open,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=7, ws_min_dist=16, min_area=150",2.2,2.646,-2.2,207.0
+ilkin,31104,W11,Close→Open + watershed min_dist=14,W06,ws_min_dist,clahe,gaussian,otsu,close_open,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=14, min_area=150",2.0,2.236,1.4,209.8
+ilkin,31104,W12,Close→Open + watershed min_dist=18,W06,ws_min_dist,clahe,gaussian,otsu,close_open,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=18, min_area=150",1.6,1.897,-0.6,273.1
+ilkin,31104,W13,Adaptif + Opening 5×5 + watershed (W09 düzeltmesi),W09,morfoloji,clahe,gaussian,adaptive,opening,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-12, morph_k=5, ws_min_dist=16, min_area=100",31.7,32.278,31.7,259.8

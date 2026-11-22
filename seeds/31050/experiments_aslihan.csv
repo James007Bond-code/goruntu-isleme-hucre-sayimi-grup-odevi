@@ -1,0 +1,15 @@
+Uye,Seed,Deney_ID,Aciklama,Referans,Degisen,Yogunluk,Filtre,Segmentasyon,Morfoloji,Ayirma,Parametreler,Dev_MAE,Dev_RMSE,Dev_Bias,Sure_ms
+aslihan,31050,K01,Baseline: orijinal + Otsu + CC,-,-,none,none,otsu,none,cc,min_area=100,9.0,10.09,-9.0,12.8
+aslihan,31050,K02,CLAHE + Gauss5 + K-means(k=2) + CC,K01,segmentasyon,clahe,gaussian,kmeans,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, min_area=100",4.2,4.712,-4.2,145.6
+aslihan,31050,K03,K-means k=3,K02,kmeans_k,clahe,gaussian,kmeans,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=3, min_area=100",13.1,13.465,-13.1,670.9
+aslihan,31050,K04,K-means k=4,K02,kmeans_k,clahe,gaussian,kmeans,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=4, min_area=100",13.8,14.093,-13.8,639.0
+aslihan,31050,K05,K-means k=3 + Opening 5×5,K03,morfoloji,clahe,gaussian,kmeans,opening,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=3, morph_k=5, min_area=100",11.2,12.066,-11.2,640.2
+aslihan,31050,K06,"LoG blob (σ 6–16, eşik 0.05), maskesiz",K01,sayım yöntemi,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, min_area=100",37.1,38.001,37.1,1945.0
+aslihan,31050,K07,LoG eşik 0.10,K06,log_thresh,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_thresh=0.1, min_area=100",8.3,9.955,8.1,1980.7
+aslihan,31050,K08,LoG σ 8–20,K06,log_sigma,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_min_sigma=8, log_max_sigma=20, min_area=100",6.5,7.477,6.5,2391.8
+aslihan,31050,K09,Otsu maskesi içindeki LoG blob'ları,K06,maske,clahe,gaussian,otsu,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, min_area=100",31.9,33.014,31.9,2024.4
+aslihan,31050,K10,"LoG eşik 0.15, maskesiz",K07,log_thresh,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_thresh=0.15, min_area=100",10.4,10.844,-10.4,1932.9
+aslihan,31050,K11,"LoG eşik 0.20, maskesiz",K07,log_thresh,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_thresh=0.2, min_area=100",18.3,18.382,-18.3,2014.2
+aslihan,31050,K12,"LoG σ 8–20, eşik 0.10",K08,log_thresh,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_min_sigma=8, log_max_sigma=20, log_thresh=0.1, min_area=100",3.6,4.0,-0.2,2445.3
+aslihan,31050,K13,K-means k=2 + watershed (min_dist=16),K02,ayırma,clahe,gaussian,kmeans,none,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, ws_min_dist=16, min_area=100",7.1,7.342,7.1,334.0
+aslihan,31050,K14,K-means k=2 + Opening 5×5,K02,morfoloji,clahe,gaussian,kmeans,opening,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, morph_k=5, min_area=100",5.2,5.55,-5.2,148.0

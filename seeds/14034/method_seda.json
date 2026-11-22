@@ -1,0 +1,20 @@
+{
+  "name": "M_seda",
+  "owner": "seda",
+  "seed": 14034,
+  "experiment": "D14: HE + Gauss 5×5, min_area=150",
+  "config": {
+    "intensity": "hist_eq",
+    "filter": "gaussian",
+    "segmentation": "otsu",
+    "morph": "none",
+    "separation": "cc",
+    "min_area": 150,
+    "filter_k": 5
+  },
+  "hm_ref": null,
+  "validation_own_seed": {
+    "Validation_MAE": 1.0,
+    "Validation_RMSE": 1.0
+  }
+}

@@ -1,0 +1,13 @@
+Uye,Seed,Pipeline,Validation_MAE,Validation_RMSE,Validation_Bias,Ortalama_Sure_ms,Karmasiklik,Parametreler,Dev_Sirasi,Secim
+suleyman,14048,S12: C=-16 + blok=91,2.4,3.521,2.0,78.4,4,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=91, adapt_c=-16, min_area=100",3,SEÇİLDİ
+suleyman,14048,S06: Adaptif C=-16,3.0,3.194,-0.2,42.0,4,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-16, min_area=100",1,elendi
+suleyman,14048,S13: C=-16 + Opening 3×3,4.4,4.69,-0.8,58.7,5,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-16, morph_k=3, min_area=100",2,elendi
+seda,14034,"D14: HE + Gauss 5×5, min_area=150",1.0,1.0,1.0,15.2,4,"filter_k=5, min_area=150",2,SEÇİLDİ
+seda,14034,D08: Stretch + keskinleştirme,2.2,2.646,-1.8,31.5,4,"stretch_p=(1, 99.8), min_area=100",1,elendi
+seda,14034,"D12: Stretch + keskinleştirme, min_area=150",3.2,3.95,-3.2,32.7,4,"stretch_p=(1, 99.8), min_area=150",3,elendi
+ilkin,31104,W06: Close→Open (sıra) + watershed,1.2,1.265,0.4,210.9,6,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",1,SEÇİLDİ
+ilkin,31104,W03: W02 + watershed (min_dist=16),1.6,1.789,1.6,215.0,6,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",2,elendi
+ilkin,31104,W12: Close→Open + watershed min_dist=18,1.6,2.0,-1.2,209.6,6,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=18, min_area=150",3,elendi
+aslihan,31050,"K12: LoG σ 8–20, eşik 0.10",4.8,4.899,-3.2,2437.4,4,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_min_sigma=8, log_max_sigma=20, log_thresh=0.1, min_area=100",1,SEÇİLDİ
+aslihan,31050,K14: K-means k=2 + Opening 5×5,6.4,6.481,-6.4,151.0,5,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, morph_k=5, min_area=100",3,elendi
+aslihan,31050,K02: CLAHE + Gauss5 + K-means(k=2) + CC,7.2,7.294,-7.2,149.5,4,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, min_area=100",2,elendi

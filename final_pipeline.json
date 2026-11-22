@@ -1,0 +1,149 @@
+{
+  "selection_rule": "4 seed doğrulama MAE ortalaması; eşitlikte std, RMSE, karmaşıklık, aday sırası",
+  "method5_name": "M5_combo",
+  "methods": {
+    "baseline": {
+      "name": "baseline",
+      "config": {
+        "intensity": "none",
+        "filter": "none",
+        "segmentation": "otsu",
+        "morph": "none",
+        "separation": "cc",
+        "min_area": 100
+      },
+      "hm_ref": null
+    },
+    "M_suleyman": {
+      "name": "M_suleyman",
+      "owner": "suleyman",
+      "seed": 14048,
+      "experiment": "S12: C=-16 + blok=91",
+      "config": {
+        "intensity": "clahe",
+        "clahe_clip": 3.0,
+        "clahe_grid": [
+          8,
+          8
+        ],
+        "filter": "gaussian",
+        "filter_k": 5,
+        "segmentation": "adaptive",
+        "adapt_block": 91,
+        "adapt_c": -16,
+        "morph": "none",
+        "separation": "cc",
+        "min_area": 100
+      },
+      "hm_ref": null,
+      "validation_own_seed": {
+        "Validation_MAE": 2.4,
+        "Validation_RMSE": 3.521
+      }
+    },
+    "M_seda": {
+      "name": "M_seda",
+      "owner": "seda",
+      "seed": 14034,
+      "experiment": "D14: HE + Gauss 5×5, min_area=150",
+      "config": {
+        "intensity": "hist_eq",
+        "filter": "gaussian",
+        "segmentation": "otsu",
+        "morph": "none",
+        "separation": "cc",
+        "min_area": 150,
+        "filter_k": 5
+      },
+      "hm_ref": null,
+      "validation_own_seed": {
+        "Validation_MAE": 1.0,
+        "Validation_RMSE": 1.0
+      }
+    },
+    "M_ilkin": {
+      "name": "M_ilkin",
+      "owner": "ilkin",
+      "seed": 31104,
+      "experiment": "W06: Close→Open (sıra) + watershed",
+      "config": {
+        "intensity": "clahe",
+        "filter": "gaussian",
+        "segmentation": "otsu",
+        "morph": "close_open",
+        "separation": "watershed",
+        "min_area": 150,
+        "clahe_clip": 3.0,
+        "clahe_grid": [
+          8,
+          8
+        ],
+        "filter_k": 5,
+        "morph_k": 5,
+        "ws_min_dist": 16
+      },
+      "hm_ref": null,
+      "validation_own_seed": {
+        "Validation_MAE": 1.2,
+        "Validation_RMSE": 1.265
+      }
+    },
+    "M_aslihan": {
+      "name": "M_aslihan",
+      "owner": "aslihan",
+      "seed": 31050,
+      "experiment": "K12: LoG σ 8–20, eşik 0.10",
+      "config": {
+        "intensity": "clahe",
+        "filter": "gaussian",
+        "segmentation": "none",
+        "morph": "none",
+        "separation": "log",
+        "min_area": 100,
+        "clahe_clip": 3.0,
+        "clahe_grid": [
+          8,
+          8
+        ],
+        "filter_k": 5,
+        "log_min_sigma": 8,
+        "log_max_sigma": 20,
+        "log_thresh": 0.1
+      },
+      "hm_ref": null,
+      "validation_own_seed": {
+        "Validation_MAE": 4.8,
+        "Validation_RMSE": 4.899
+      }
+    },
+    "M5": {
+      "name": "M5_combo",
+      "config": {
+        "segmentation": "otsu",
+        "morph": "close_open",
+        "morph_k": 5,
+        "separation": "watershed",
+        "min_area": 150,
+        "intensity": "clahe",
+        "clahe_clip": 3.0,
+        "clahe_grid": [
+          8,
+          8
+        ],
+        "filter": "gaussian",
+        "filter_k": 5,
+        "ws_min_dist": 16
+      },
+      "hm_ref": null
+    }
+  },
+  "seeds": {
+    "suleyman": 14048,
+    "seda": 14034,
+    "ilkin": 31104,
+    "aslihan": 31050
+  },
+  "seen_test_seeds": [
+    14048
+  ]
+}

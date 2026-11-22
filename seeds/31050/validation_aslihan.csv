@@ -1,0 +1,4 @@
+Uye,Seed,Pipeline,Validation_MAE,Validation_RMSE,Validation_Bias,Ortalama_Sure_ms,Karmasiklik,Parametreler,Dev_Sirasi,Secim
+aslihan,31050,"K12: LoG σ 8–20, eşik 0.10",4.8,4.899,-3.2,2437.4,4,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_min_sigma=8, log_max_sigma=20, log_thresh=0.1, min_area=100",1,SEÇİLDİ
+aslihan,31050,K14: K-means k=2 + Opening 5×5,6.4,6.481,-6.4,151.0,5,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, morph_k=5, min_area=100",3,elendi
+aslihan,31050,K02: CLAHE + Gauss5 + K-means(k=2) + CC,7.2,7.294,-7.2,149.5,4,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, min_area=100",2,elendi

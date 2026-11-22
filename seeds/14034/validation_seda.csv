@@ -1,0 +1,4 @@
+Uye,Seed,Pipeline,Validation_MAE,Validation_RMSE,Validation_Bias,Ortalama_Sure_ms,Karmasiklik,Parametreler,Dev_Sirasi,Secim
+seda,14034,"D14: HE + Gauss 5×5, min_area=150",1.0,1.0,1.0,15.2,4,"filter_k=5, min_area=150",2,SEÇİLDİ
+seda,14034,D08: Stretch + keskinleştirme,2.2,2.646,-1.8,31.5,4,"stretch_p=(1, 99.8), min_area=100",1,elendi
+seda,14034,"D12: Stretch + keskinleştirme, min_area=150",3.2,3.95,-3.2,32.7,4,"stretch_p=(1, 99.8), min_area=150",3,elendi

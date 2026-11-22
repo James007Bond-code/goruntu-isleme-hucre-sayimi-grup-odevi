@@ -1,0 +1,28 @@
+{
+  "name": "M_aslihan",
+  "owner": "aslihan",
+  "seed": 31050,
+  "experiment": "K12: LoG σ 8–20, eşik 0.10",
+  "config": {
+    "intensity": "clahe",
+    "filter": "gaussian",
+    "segmentation": "none",
+    "morph": "none",
+    "separation": "log",
+    "min_area": 100,
+    "clahe_clip": 3.0,
+    "clahe_grid": [
+      8,
+      8
+    ],
+    "filter_k": 5,
+    "log_min_sigma": 8,
+    "log_max_sigma": 20,
+    "log_thresh": 0.1
+  },
+  "hm_ref": null,
+  "validation_own_seed": {
+    "Validation_MAE": 4.8,
+    "Validation_RMSE": 4.899
+  }
+}

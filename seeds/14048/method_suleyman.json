@@ -1,0 +1,27 @@
+{
+  "name": "M_suleyman",
+  "owner": "suleyman",
+  "seed": 14048,
+  "experiment": "S12: C=-16 + blok=91",
+  "config": {
+    "intensity": "clahe",
+    "clahe_clip": 3.0,
+    "clahe_grid": [
+      8,
+      8
+    ],
+    "filter": "gaussian",
+    "filter_k": 5,
+    "segmentation": "adaptive",
+    "adapt_block": 91,
+    "adapt_c": -16,
+    "morph": "none",
+    "separation": "cc",
+    "min_area": 100
+  },
+  "hm_ref": null,
+  "validation_own_seed": {
+    "Validation_MAE": 2.4,
+    "Validation_RMSE": 3.521
+  }
+}

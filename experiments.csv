@@ -1,0 +1,55 @@
+Uye,Seed,Deney_ID,Aciklama,Referans,Degisen,Yogunluk,Filtre,Segmentasyon,Morfoloji,Ayirma,Parametreler,Dev_MAE,Dev_RMSE,Dev_Bias,Sure_ms
+suleyman,14048,S01,Baseline: orijinal + Otsu + CC,-,-,none,none,otsu,none,cc,min_area=100,6.5,6.804,-6.5,12.3
+suleyman,14048,S02,"E11: CLAHE3 + Gauss5 + Adaptif(71,-12) + CC",S01,pipeline,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-12, min_area=100",2.8,3.13,0.2,41.3
+suleyman,14048,S03,Adaptif blok=51,S02,adapt_block,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=51, adapt_c=-12, min_area=100",3.7,4.324,2.9,33.9
+suleyman,14048,S04,Adaptif blok=91,S02,adapt_block,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=91, adapt_c=-12, min_area=100",4.9,5.167,-2.3,45.2
+suleyman,14048,S05,Adaptif C=-8,S02,adapt_c,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-8, min_area=100",4.3,4.68,-2.5,40.5
+suleyman,14048,S06,Adaptif C=-16,S02,adapt_c,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-16, min_area=100",1.8,2.236,0.8,38.8
+suleyman,14048,S07,CLAHE clip=2.0,S02,clahe_clip,clahe,gaussian,adaptive,none,cc,"clahe_clip=2.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-12, min_area=100",3.0,3.098,2.0,39.8
+suleyman,14048,S08,Gauss 3×3,S02,filter_k,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=3, adapt_block=71, adapt_c=-12, min_area=100",3.0,3.376,1.0,37.8
+suleyman,14048,S09,Adaptif C=-20,S06,adapt_c,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-20, min_area=100",4.4,5.04,-3.2,39.7
+suleyman,14048,S10,Adaptif C=-24,S06,adapt_c,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-24, min_area=100",5.8,6.633,-3.4,38.6
+suleyman,14048,S11,C=-16 + blok=51,S06,adapt_block,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=51, adapt_c=-16, min_area=100",3.7,4.416,-1.1,34.0
+suleyman,14048,S12,C=-16 + blok=91,S06,adapt_block,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=91, adapt_c=-16, min_area=100",2.8,3.066,1.4,46.7
+suleyman,14048,S13,C=-16 + Opening 3×3,S06,morfoloji,clahe,gaussian,adaptive,opening,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-16, morph_k=3, min_area=100",2.0,2.324,0.6,40.5
+seda,14034,D01,Baseline: orijinal + Otsu + CC,-,-,none,none,otsu,none,cc,min_area=100,10.5,10.886,-10.5,17.4
+seda,14034,D02,Contrast stretching (1–99.8%),D01,yoğunluk,stretch,none,otsu,none,cc,"stretch_p=(1, 99.8), min_area=100",10.3,10.663,-10.3,40.1
+seda,14034,D03,Histogram equalization,D01,yoğunluk,hist_eq,none,otsu,none,cc,min_area=100,141.7,145.788,141.7,33.9
+seda,14034,D04,Histogram matching (ref: kendi dev),D01,yoğunluk,hist_match,none,otsu,none,cc,min_area=100,11.2,11.679,-11.2,120.8
+seda,14034,D05,Stretch + Median 3×3,D02,filtre,stretch,median,otsu,none,cc,"stretch_p=(1, 99.8), filter_k=3, min_area=100",12.3,12.542,-12.3,38.2
+seda,14034,D06,Stretch + Median 5×5,D02,filter_k,stretch,median,otsu,none,cc,"stretch_p=(1, 99.8), filter_k=5, min_area=100",12.7,12.88,-12.7,41.1
+seda,14034,D07,Stretch + Bilateral 7 (σ=50),D02,filtre,stretch,bilateral,otsu,none,cc,"stretch_p=(1, 99.8), filter_k=7, bil_sigma=50, min_area=100",12.6,12.791,-12.6,97.0
+seda,14034,D08,Stretch + keskinleştirme,D02,filtre,stretch,sharpen,otsu,none,cc,"stretch_p=(1, 99.8), min_area=100",3.4,3.742,-3.4,31.6
+seda,14034,D09,Stretch + Median 5×5 + Opening 5×5,D06,morfoloji,stretch,median,otsu,opening,cc,"stretch_p=(1, 99.8), filter_k=5, morph_k=5, min_area=100",12.1,12.47,-12.1,33.4
+seda,14034,D10,Orijinal + keskinleştirme (stretch yok),D08,yoğunluk,none,sharpen,otsu,none,cc,min_area=100,12.0,12.075,-12.0,13.4
+seda,14034,D11,Stretch + keskinleştirme + Opening 3×3,D08,morfoloji,stretch,sharpen,otsu,opening,cc,"stretch_p=(1, 99.8), morph_k=3, min_area=100",20.1,20.117,-20.1,30.7
+seda,14034,D12,"Stretch + keskinleştirme, min_area=150",D08,min_area,stretch,sharpen,otsu,none,cc,"stretch_p=(1, 99.8), min_area=150",7.4,7.55,-7.4,31.0
+seda,14034,D13,Histogram eşitleme + Gauss 5×5,D03,filtre,hist_eq,gaussian,otsu,none,cc,"filter_k=5, min_area=100",13.1,24.362,13.1,14.6
+seda,14034,D14,"HE + Gauss 5×5, min_area=150",D13,min_area,hist_eq,gaussian,otsu,none,cc,"filter_k=5, min_area=150",7.2,13.0,7.2,14.6
+ilkin,31104,W01,Baseline: orijinal + Otsu + CC,-,-,none,none,otsu,none,cc,min_area=100,9.3,10.065,-9.3,12.0
+ilkin,31104,W02,CLAHE + Gauss5 + Otsu + Open→Close 5×5 + CC,W01,pipeline,clahe,gaussian,otsu,open_close,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, min_area=150",7.1,7.232,-7.1,23.1
+ilkin,31104,W03,W02 + watershed (min_dist=16),W02,ayırma,clahe,gaussian,otsu,open_close,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",1.5,1.761,-0.3,203.5
+ilkin,31104,W04,Watershed min_dist=10,W03,ws_min_dist,clahe,gaussian,otsu,open_close,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=10, min_area=150",4.4,4.775,4.4,203.9
+ilkin,31104,W05,Watershed min_dist=22,W03,ws_min_dist,clahe,gaussian,otsu,open_close,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=22, min_area=150",3.9,4.183,-3.9,232.6
+ilkin,31104,W06,Close→Open (sıra) + watershed,W03,morfoloji sırası,clahe,gaussian,otsu,close_open,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",1.4,1.673,0.4,305.3
+ilkin,31104,W07,SE 3×3 + watershed,W03,SE boyutu,clahe,gaussian,otsu,open_close,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=3, ws_min_dist=16, min_area=150",3.2,3.899,3.2,213.4
+ilkin,31104,W08,Erosion 5×5 + CC (ayırma için aşındırma),W02,morfoloji,clahe,gaussian,otsu,erosion,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, min_area=150",7.7,7.842,-7.7,22.3
+ilkin,31104,W09,"Adaptif(71,-12) + watershed",W03,segmentasyon,clahe,gaussian,adaptive,none,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-12, morph_k=5, ws_min_dist=16, min_area=100",42.7,42.901,42.7,230.5
+ilkin,31104,W10,Close→Open SE 7×7 + watershed,W06,SE boyutu,clahe,gaussian,otsu,close_open,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=7, ws_min_dist=16, min_area=150",2.2,2.646,-2.2,207.0
+ilkin,31104,W11,Close→Open + watershed min_dist=14,W06,ws_min_dist,clahe,gaussian,otsu,close_open,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=14, min_area=150",2.0,2.236,1.4,209.8
+ilkin,31104,W12,Close→Open + watershed min_dist=18,W06,ws_min_dist,clahe,gaussian,otsu,close_open,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=18, min_area=150",1.6,1.897,-0.6,273.1
+ilkin,31104,W13,Adaptif + Opening 5×5 + watershed (W09 düzeltmesi),W09,morfoloji,clahe,gaussian,adaptive,opening,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-12, morph_k=5, ws_min_dist=16, min_area=100",31.7,32.278,31.7,259.8
+aslihan,31050,K01,Baseline: orijinal + Otsu + CC,-,-,none,none,otsu,none,cc,min_area=100,9.0,10.09,-9.0,12.8
+aslihan,31050,K02,CLAHE + Gauss5 + K-means(k=2) + CC,K01,segmentasyon,clahe,gaussian,kmeans,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, min_area=100",4.2,4.712,-4.2,145.6
+aslihan,31050,K03,K-means k=3,K02,kmeans_k,clahe,gaussian,kmeans,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=3, min_area=100",13.1,13.465,-13.1,670.9
+aslihan,31050,K04,K-means k=4,K02,kmeans_k,clahe,gaussian,kmeans,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=4, min_area=100",13.8,14.093,-13.8,639.0
+aslihan,31050,K05,K-means k=3 + Opening 5×5,K03,morfoloji,clahe,gaussian,kmeans,opening,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=3, morph_k=5, min_area=100",11.2,12.066,-11.2,640.2
+aslihan,31050,K06,"LoG blob (σ 6–16, eşik 0.05), maskesiz",K01,sayım yöntemi,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, min_area=100",37.1,38.001,37.1,1945.0
+aslihan,31050,K07,LoG eşik 0.10,K06,log_thresh,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_thresh=0.1, min_area=100",8.3,9.955,8.1,1980.7
+aslihan,31050,K08,LoG σ 8–20,K06,log_sigma,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_min_sigma=8, log_max_sigma=20, min_area=100",6.5,7.477,6.5,2391.8
+aslihan,31050,K09,Otsu maskesi içindeki LoG blob'ları,K06,maske,clahe,gaussian,otsu,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, min_area=100",31.9,33.014,31.9,2024.4
+aslihan,31050,K10,"LoG eşik 0.15, maskesiz",K07,log_thresh,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_thresh=0.15, min_area=100",10.4,10.844,-10.4,1932.9
+aslihan,31050,K11,"LoG eşik 0.20, maskesiz",K07,log_thresh,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_thresh=0.2, min_area=100",18.3,18.382,-18.3,2014.2
+aslihan,31050,K12,"LoG σ 8–20, eşik 0.10",K08,log_thresh,clahe,gaussian,none,none,log,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, log_min_sigma=8, log_max_sigma=20, log_thresh=0.1, min_area=100",3.6,4.0,-0.2,2445.3
+aslihan,31050,K13,K-means k=2 + watershed (min_dist=16),K02,ayırma,clahe,gaussian,kmeans,none,watershed,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, ws_min_dist=16, min_area=100",7.1,7.342,7.1,334.0
+aslihan,31050,K14,K-means k=2 + Opening 5×5,K02,morfoloji,clahe,gaussian,kmeans,opening,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, kmeans_k=2, morph_k=5, min_area=100",5.2,5.55,-5.2,148.0

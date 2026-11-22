@@ -1,0 +1,4 @@
+Uye,Seed,Pipeline,Validation_MAE,Validation_RMSE,Validation_Bias,Ortalama_Sure_ms,Karmasiklik,Parametreler,Dev_Sirasi,Secim
+suleyman,14048,S12: C=-16 + blok=91,2.4,3.521,2.0,78.4,4,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=91, adapt_c=-16, min_area=100",3,SEÇİLDİ
+suleyman,14048,S06: Adaptif C=-16,3.0,3.194,-0.2,42.0,4,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-16, min_area=100",1,elendi
+suleyman,14048,S13: C=-16 + Opening 3×3,4.4,4.69,-0.8,58.7,5,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-16, morph_k=3, min_area=100",2,elendi

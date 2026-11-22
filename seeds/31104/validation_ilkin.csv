@@ -1,0 +1,4 @@
+Uye,Seed,Pipeline,Validation_MAE,Validation_RMSE,Validation_Bias,Ortalama_Sure_ms,Karmasiklik,Parametreler,Dev_Sirasi,Secim
+ilkin,31104,W06: Close→Open (sıra) + watershed,1.2,1.265,0.4,210.9,6,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",1,SEÇİLDİ
+ilkin,31104,W03: W02 + watershed (min_dist=16),1.6,1.789,1.6,215.0,6,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=16, min_area=150",2,elendi
+ilkin,31104,W12: Close→Open + watershed min_dist=18,1.6,2.0,-1.2,209.6,6,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, morph_k=5, ws_min_dist=18, min_area=150",3,elendi

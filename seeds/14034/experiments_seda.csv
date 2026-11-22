@@ -1,0 +1,15 @@
+Uye,Seed,Deney_ID,Aciklama,Referans,Degisen,Yogunluk,Filtre,Segmentasyon,Morfoloji,Ayirma,Parametreler,Dev_MAE,Dev_RMSE,Dev_Bias,Sure_ms
+seda,14034,D01,Baseline: orijinal + Otsu + CC,-,-,none,none,otsu,none,cc,min_area=100,10.5,10.886,-10.5,17.4
+seda,14034,D02,Contrast stretching (1–99.8%),D01,yoğunluk,stretch,none,otsu,none,cc,"stretch_p=(1, 99.8), min_area=100",10.3,10.663,-10.3,40.1
+seda,14034,D03,Histogram equalization,D01,yoğunluk,hist_eq,none,otsu,none,cc,min_area=100,141.7,145.788,141.7,33.9
+seda,14034,D04,Histogram matching (ref: kendi dev),D01,yoğunluk,hist_match,none,otsu,none,cc,min_area=100,11.2,11.679,-11.2,120.8
+seda,14034,D05,Stretch + Median 3×3,D02,filtre,stretch,median,otsu,none,cc,"stretch_p=(1, 99.8), filter_k=3, min_area=100",12.3,12.542,-12.3,38.2
+seda,14034,D06,Stretch + Median 5×5,D02,filter_k,stretch,median,otsu,none,cc,"stretch_p=(1, 99.8), filter_k=5, min_area=100",12.7,12.88,-12.7,41.1
+seda,14034,D07,Stretch + Bilateral 7 (σ=50),D02,filtre,stretch,bilateral,otsu,none,cc,"stretch_p=(1, 99.8), filter_k=7, bil_sigma=50, min_area=100",12.6,12.791,-12.6,97.0
+seda,14034,D08,Stretch + keskinleştirme,D02,filtre,stretch,sharpen,otsu,none,cc,"stretch_p=(1, 99.8), min_area=100",3.4,3.742,-3.4,31.6
+seda,14034,D09,Stretch + Median 5×5 + Opening 5×5,D06,morfoloji,stretch,median,otsu,opening,cc,"stretch_p=(1, 99.8), filter_k=5, morph_k=5, min_area=100",12.1,12.47,-12.1,33.4
+seda,14034,D10,Orijinal + keskinleştirme (stretch yok),D08,yoğunluk,none,sharpen,otsu,none,cc,min_area=100,12.0,12.075,-12.0,13.4
+seda,14034,D11,Stretch + keskinleştirme + Opening 3×3,D08,morfoloji,stretch,sharpen,otsu,opening,cc,"stretch_p=(1, 99.8), morph_k=3, min_area=100",20.1,20.117,-20.1,30.7
+seda,14034,D12,"Stretch + keskinleştirme, min_area=150",D08,min_area,stretch,sharpen,otsu,none,cc,"stretch_p=(1, 99.8), min_area=150",7.4,7.55,-7.4,31.0
+seda,14034,D13,Histogram eşitleme + Gauss 5×5,D03,filtre,hist_eq,gaussian,otsu,none,cc,"filter_k=5, min_area=100",13.1,24.362,13.1,14.6
+seda,14034,D14,"HE + Gauss 5×5, min_area=150",D13,min_area,hist_eq,gaussian,otsu,none,cc,"filter_k=5, min_area=150",7.2,13.0,7.2,14.6

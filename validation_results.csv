@@ -1,0 +1,7 @@
+Pipeline,Ort_Val_MAE,Std_Val_MAE,Ort_Val_RMSE,Ort_Sure_ms,Karmasiklik,Aday_Sirasi,MAE_14048,MAE_14034,MAE_31104,MAE_31050,Secim
+M5_combo,1.25,0.357,1.514,220.7,6,5,0.8,1.8,1.2,1.2,SEÇİLDİ (5. yöntem)
+M_ilkin,1.262,0.356,1.541,220.2,6,3,0.8,1.8,1.2,1.25,elendi
+M5_ensemble_median,1.404,0.473,1.552,2730.1,18,6,1.67,1.2,0.75,2.0,elendi
+M_suleyman,1.8,0.51,2.758,46.8,4,1,2.4,1.0,2.0,1.8,elendi
+M_aslihan,3.45,0.865,3.892,2432.2,4,4,3.4,3.2,2.4,4.8,elendi
+M_seda,4.062,3.931,5.3,15.1,4,2,3.0,1.0,1.5,10.75,elendi
