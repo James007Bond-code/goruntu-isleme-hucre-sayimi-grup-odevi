@@ -10,12 +10,12 @@ Seed kuralı (ödev Bölüm 3): öğrenci numarasının son 5 hanesi + 2026.
 
 | Üye | Öğrenci no | Seed | Yöntem ailesi | Notebook |
 |---|---|---|---|---|
-| Süleyman Balsak | 254312022 | **14048** (temel) | CLAHE + Gauss + adaptif eşik + bağlı bileşen | `notebooks/1_suleyman_14048.ipynb` |
-| Seda Erten | 254312008 | 14034 | Yoğunluk dönüşümleri + median/bilateral filtre + Otsu | `notebooks/2_seda_14034.ipynb` |
-| İlkin Urcan | 244329078 | 31104 | Morfoloji + distance transform + watershed (temas eden hücreleri ayırma) | `notebooks/3_ilkin_31104.ipynb` |
-| Aslıhan Semiz Varlı | 254329024 | 31050 | K-means segmentasyonu + LoG blob tespiti | `notebooks/4_aslihan_31050.ipynb` |
+| Süleyman Balsak | 254312022 | **14048** (temel) | CLAHE + Gauss + adaptif eşik + bağlı bileşen | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/1_suleyman_14048.ipynb) `1_suleyman_14048.ipynb` |
+| Seda Erten | 254312008 | 14034 | Yoğunluk dönüşümleri + median/bilateral filtre + Otsu | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/2_seda_14034.ipynb) `2_seda_14034.ipynb` |
+| İlkin Urcan | 244329078 | 31104 | Morfoloji + distance transform + watershed (temas eden hücreleri ayırma) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/3_ilkin_31104.ipynb) `3_ilkin_31104.ipynb` |
+| Aslıhan Semiz Varlı | 254329024 | 31050 | K-means segmentasyonu + LoG blob tespiti | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/4_aslihan_31050.ipynb) `4_aslihan_31050.ipynb` |
 
-Ortak bölüm: `notebooks/5_cross_seed.ipynb` dosyasında çapraz seed analizi, **5. yöntem** (dayanıklı pipeline), kilit, test ve zamansal analiz yapılır.
+Ortak bölüm: [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/5_cross_seed.ipynb) `notebooks/5_cross_seed.ipynb` dosyasında çapraz seed analizi, **5. yöntem** (dayanıklı pipeline), kilit, test ve zamansal analiz yapılır.
 
 ## Çalışmanın sorusu
 Bireysel ödevde nihai pipeline tek bir rastgele kare seçimine göre belirlenir. Bu grup çalışmasında
