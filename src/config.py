@@ -37,6 +37,11 @@ N_VAL, N_DEV = 5, 10            # sekans 01
 N_BLOCKS, BLOCK_LEN = 3, 5      # sekans 02
 
 
+# Ödev 18.2'nin istediği dosyalar repo kökündedir (4 seed birleşik)
+LOCK_FILE = os.path.join(REPO_ROOT, "test_predictions_locked.csv")
+FINAL_PIPELINE_FILE = os.path.join(REPO_ROOT, "final_pipeline.json")
+
+
 def seed_dir(seed):
     d = os.path.join(SEEDS_DIR, str(seed))
     os.makedirs(d, exist_ok=True)

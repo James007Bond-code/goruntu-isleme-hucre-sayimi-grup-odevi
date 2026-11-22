@@ -96,19 +96,20 @@ def run_experiments(experiments, dev_df, hm_ref=None, member=None, seed=None):
 
 
 def rank_candidates(candidates, val_df, hm_ref=None):
-    """candidates: {isim: config}. Seçim: en düşük MAE; eşitlikte RMSE, karmaşıklık, süre.
+    """candidates: {isim: config} (geliştirme sıralamasına göre sıralı).
 
-    Karmaşıklık süreden önce gelir: süre ölçümü çalıştırmadan çalıştırmaya değiştiği için
-    seçimin tekrarlanabilir olmasını sağlar.
+    Seçim: en düşük doğrulama MAE; eşitlikte RMSE, karmaşıklık, sonra geliştirme sıralaması.
+    Süre tabloda raporlanır ama eşitlik bozmada KULLANILMAZ: ölçülen süre çalıştırmadan
+    çalıştırmaya değiştiği için seçimi tekrarlanamaz hale getirir.
     """
     rows = []
-    for name, cfg in candidates.items():
+    for order, (name, cfg) in enumerate(candidates.items()):
         m = evaluate(val_df, cfg, hm_ref)
         rows.append({"Pipeline": name, "Validation_MAE": round(m["MAE"], 3),
                      "Validation_RMSE": round(m["RMSE"], 3), "Validation_Bias": round(m["Bias"], 3),
                      "Ortalama_Sure_ms": round(m["Sure_ms"], 1), "Karmasiklik": complexity(cfg),
-                     "Parametreler": param_str(cfg)})
-    df = pd.DataFrame(rows).sort_values(["Validation_MAE", "Validation_RMSE", "Karmasiklik", "Ortalama_Sure_ms"])
+                     "Parametreler": param_str(cfg), "Dev_Sirasi": order + 1})
+    df = pd.DataFrame(rows).sort_values(["Validation_MAE", "Validation_RMSE", "Karmasiklik", "Dev_Sirasi"])
     df["Secim"] = ["SEÇİLDİ"] + ["elendi"] * (len(df) - 1)
     return df.reset_index(drop=True)
 

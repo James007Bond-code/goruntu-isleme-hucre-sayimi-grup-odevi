@@ -55,3 +55,31 @@ def read_gt_labels(seq_str, frame_idx, lock_file=None):
 def read_gt_count(seq_str, frame_idx, lock_file=None):
     lbl = read_gt_labels(seq_str, frame_idx, lock_file)
     return None if lbl is None else int(np.count_nonzero(np.unique(lbl)))
+
+
+def describe_sequence(seq_str):
+    """Ödev Bölüm 2: her karenin boyut, tip ve yoğunluk istatistikleri (referans okunmaz)."""
+    rows = []
+    for p in list_frames(seq_str):
+        im = cv2.imread(p, cv2.IMREAD_UNCHANGED)
+        rows.append({"sequence": seq_str, "filename": os.path.basename(p), "height": im.shape[0],
+                     "width": im.shape[1], "dtype": str(im.dtype), "min": int(im.min()), "max": int(im.max()),
+                     "mean": round(float(im.mean()), 2), "std": round(float(im.std()), 2),
+                     "p50": float(np.percentile(im, 50)), "p99": float(np.percentile(im, 99)),
+                     "p99_9": float(np.percentile(im, 99.9))})
+    return rows
+
+
+def lock_is_committed(paths):
+    """Kilit dosyalarının git'te commit edilmiş ve değiştirilmemiş olduğunu kontrol eder."""
+    import subprocess
+    for p in paths:
+        if not os.path.exists(p):
+            return False, f"{p} yok"
+        r = subprocess.run(["git", "ls-files", "--error-unmatch", p], capture_output=True, cwd=C.REPO_ROOT)
+        if r.returncode != 0:
+            return False, f"{os.path.basename(p)} henüz commit edilmemiş"
+        r = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", p], cwd=C.REPO_ROOT)
+        if r.returncode != 0:
+            return False, f"{os.path.basename(p)} commit edilen sürümden farklı"
+    return True, "kilit commit edilmiş"

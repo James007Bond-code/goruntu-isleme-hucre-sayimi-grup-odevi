@@ -8,14 +8,15 @@ hücre segmentasyonu, sayımı ve zamansal sayım analizi. Derin öğrenme kulla
 ## Hazırlayanlar, seed'ler ve yöntem aileleri
 Seed kuralı (ödev Bölüm 3): öğrenci numarasının son 5 hanesi + 2026.
 
-| Üye | Öğrenci no | Seed | Yöntem ailesi | Notebook |
+| Üye | Öğrenci no | Seed | Yöntem ailesi | Deney dosyası |
 |---|---|---|---|---|
-| Süleyman Balsak | 254312022 | **14048** (temel) | CLAHE + Gauss + adaptif eşik + bağlı bileşen | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/1_suleyman_14048.ipynb) `1_suleyman_14048.ipynb` |
-| Seda Erten | 254312008 | 14034 | Yoğunluk dönüşümleri + median/bilateral filtre + Otsu | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/2_seda_14034.ipynb) `2_seda_14034.ipynb` |
-| İlkin Urcan | 244329078 | 31104 | Morfoloji + distance transform + watershed (temas eden hücreleri ayırma) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/3_ilkin_31104.ipynb) `3_ilkin_31104.ipynb` |
-| Aslıhan Semiz Varlı | 254329024 | 31050 | K-means segmentasyonu + LoG blob tespiti | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/4_aslihan_31050.ipynb) `4_aslihan_31050.ipynb` |
+| Süleyman Balsak | 254312022 | **14048** (temel) | CLAHE + Gauss + adaptif eşik + bağlı bileşen | `src/experiments/suleyman.py` |
+| Seda Erten | 254312008 | 14034 | Yoğunluk dönüşümleri + median/bilateral filtre + Otsu | `src/experiments/seda.py` |
+| İlkin Urcan | 244329078 | 31104 | Morfoloji + distance transform + watershed (temas eden hücreleri ayırma) | `src/experiments/ilkin.py` |
+| Aslıhan Semiz Varlı | 254329024 | 31050 | K-means segmentasyonu + LoG blob tespiti | `src/experiments/aslihan.py` |
 
-Ortak bölüm: [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/notebooks/5_cross_seed.ipynb) `notebooks/5_cross_seed.ipynb` dosyasında çapraz seed analizi, **5. yöntem** (dayanıklı pipeline), kilit, test ve zamansal analiz yapılır.
+**Tek notebook:** [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main.ipynb) `main.ipynb`. Bütün üyelerin deneyleri, çapraz seed analizi, **5. yöntem**, kilit, test ve zamansal analiz bu notebook'ta çalışır.
+Her üye yalnızca kendi `src/experiments/<üye>.py` dosyasındaki deney listesini düzenler; böylece katkılar commit geçmişinde ayrı görünür.
 
 ## Çalışmanın sorusu
 Bireysel ödevde nihai pipeline tek bir rastgele kare seçimine göre belirlenir. Bu grup çalışmasında
@@ -25,12 +26,13 @@ düşük ve birbirine yakın hata veren pipeline olarak seçilir.
 
 ## Akış
 1. **Seçim** (`select_frames.py`): 4 seed için kareler, yöntem geliştirmeden önce seçilip ilk commit ile kaydedilir.
-2. **Üye notebook'ları:** Her üye kendi seed'inin geliştirme kümesinde kontrollü deneyler yapar, en iyi 3 adayı kendi
+2. **Üye deneyleri** (`main.ipynb` Bölüm 4): Her üye kendi seed'inin geliştirme kümesinde kontrollü deneyler yapar, en iyi 3 adayı kendi
    doğrulama kümesinde karşılaştırır ve yöntemini `seeds/<seed>/method_<üye>.json` dosyasına yazar.
 3. **Çapraz seed matrisi:** 4 üye yöntemi ve baseline, 4 seed'in doğrulama kümelerinde değerlendirilir.
 4. **5. yöntem:** Birleşik adaylar ortak geliştirme havuzunda ayarlanır; 4 üye yöntemi ve medyan topluluğu ile birlikte
    karşılaştırılır. **Seçim kuralı önceden sabittir:** 4 seed doğrulama MAE ortalaması en düşük olan seçilir.
-   Eşitlikte sırasıyla seed'ler arası standart sapma, RMSE, karmaşıklık ve süreye bakılır.
+   Eşitlikte sırasıyla seed'ler arası standart sapma, RMSE, karmaşıklık ve aday sırasına bakılır. Ölçülen süre
+   tablolarda raporlanır ama eşitlik bozmada kullanılmaz: her çalıştırmada değiştiği için seçimi tekrarlanamaz yapar.
 5. 🔒 **Kilit:** Baseline, 4 üye yöntemi ve 5. yöntem, 60 test karesinde (4 seed × 15) referanslar okunmadan tahmin edilir
    ve **ayrı bir commit** ile kaydedilir.
 6. **Test ve zamansal analiz:** Referanslar ilk kez kilitten sonra okunur.
@@ -51,40 +53,56 @@ düşük ve birbirine yakın hata veren pipeline olarak seçilir.
   kare seçiminin etkisini ölçer; sekanslar arası farkı (01 → 02) ortadan kaldırmaz.
 
 ## Kurulum ve çalıştırma
-1. Google Colab'da notebook'u açın. İlk hücre repoyu klonlar, ikinci hücre veri setini resmî adresten `data/` klasörüne indirir.
-   Yerelde çalıştırmak için `pip install -r requirements.txt` yeterlidir.
-2. Çalıştırma sırası:
-   - `python select_frames.py` (seçim zaten kayıtlıdır; komut yalnızca aynı sonucu verdiğini doğrular)
-   - `notebooks/1_…` – `4_…` (her üye kendi notebook'unu çalıştırır, sıra önemli değildir)
-   - `notebooks/5_cross_seed.ipynb` → **kilit hücresinden sonra commit**, ardından test bölümleri
-3. Ortak kod `src/` altındadır: `config.py` (seed'ler, yollar), `data.py`, `selection.py`, `pipeline.py`
-   (tek `run_pipeline` fonksiyonu), `evaluation.py` (metrikler, deney tabloları, kilit).
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main.ipynb) linkiyle `main.ipynb` Colab'da açılır. İlk hücre repoyu klonlar,
+ikinci hücre veri setini resmî adresten `data/` klasörüne indirir. Yerelde çalıştırmak için `pip install -r requirements.txt` yeterlidir.
 
+Notebook **iki aşamada** çalışır:
+1. **1. aşama – *Tümünü çalıştır*:** Bölüm 0–7 çalışır: seçim doğrulanır, deneyler ve doğrulama yapılır, 5. yöntem seçilir,
+   `final_pipeline.json` ve `test_predictions_locked.csv` yazılır. Bölüm 8'deki kontrol notebook'u **durdurur** ve
+   `kilit_commit.zip` dosyasını indirir. Bu zip'in içeriği GitHub'a **kilit commit'i** olarak gönderilir.
+2. **2. aşama – yeni Colab oturumunda yine *Tümünü çalıştır*:** Kilit dosyaları commit edildiği için kontrol geçer. Yeniden üretilen
+   tahminlerin kilitlenenlerle birebir aynı olduğu doğrulanır. Ardından test (Bölüm 9) ve zamansal analiz (Bölüm 10) çalışır.
+   Bölüm 11, `test_commit.zip` dosyasını indirir; bu da **test commit'i** olarak gönderilir.
+
+Test referansları (sekans 02) kodla korunur: kilit dosyası yoksa ya da commit edilmemişse okunamaz.
+
+- Ortak kod `src/` altındadır: `config.py` (üyeler, seed'ler, yollar), `data.py`, `selection.py`, `pipeline.py`
+  (tek `run_pipeline` fonksiyonu), `evaluation.py` (metrikler, deney tabloları, kilit), `experiments/<üye>.py`.
+- `python select_frames.py` seçimi yeniden üretir ve kayıtlı seçimle aynı olduğunu doğrular.
 - **Veri seti:** https://data.celltrackingchallenge.net/training-datasets/Fluo-N2DH-GOWT1.zip. **Veri seti bu repoda yer almaz.**
-- Notebook'lar GitHub'a **çıktıları temizlenmiş** olarak yüklenir. Veri görüntüsü içeren şekiller `figures_report/` klasörüne
+- Notebook GitHub'a **çıktıları temizlenmiş** olarak yüklenir. Veri görüntüsü içeren şekiller `figures_report/` klasörüne
   yazılır ve yalnızca raporda kullanılır (`.gitignore`).
 
 ## Commit düzeni
 | # | Commit | İçerik |
 |---|---|---|
 | 1 | Seçim | `src/`, `select_frames.py`, `seeds/*/selected_frames.csv`, `results/seed_overlap.csv` |
-| 2 | Üye deneyleri | `seeds/<seed>/experiments_*`, `validation_*`, `method_*.json` (her üye kendi branch'i + PR) |
-| 3 | 🔒 Kilit | `results/final_pipeline.json`, `results/test_predictions_locked.csv`, çapraz seed ve 5. yöntem tabloları |
-| 4 | Test | `results/test_results.csv`, `test_summary.csv`, `temporal_analysis.csv`, grafikler |
+| 2 | Üye deneyleri | Her üye `src/experiments/<üye>.py` dosyasını kendi branch'inde geliştirir ve PR açar |
+| 3 | 🔒 Kilit | `kilit_commit.zip` içeriği: deney ve doğrulama tabloları, `final_pipeline.json`, `test_predictions_locked.csv` |
+| 4 | Test | `test_commit.zip` içeriği: `test_results.csv`, `test_summary.csv`, zamansal analiz, grafikler |
 
 ## Üretilen dosyalar
+Ödevin (Bölüm 18.2) istediği dosyalar repo kökündedir ve 4 seed'i birlikte içerir:
+
 | Dosya | İçerik |
 |---|---|
-| `seeds/<seed>/selected_frames.csv` | Seçilen kareler, gruplar, test blokları (referans sayısı içermez) |
-| `seeds/<seed>/dev_val_references.csv` | Geliştirme/doğrulama referans hücre sayıları |
-| `seeds/<seed>/experiments_<üye>.csv` | Üyenin kontrollü deneyleri (Tablo 2'nin parçası) |
-| `seeds/<seed>/validation_<üye>.csv` | Üyenin 3 adayının doğrulama sonuçları |
-| `seeds/<seed>/method_<üye>.json` | Üyenin seçtiği yöntem (konfigürasyon + histogram matching referansı) |
-| `results/seed_overlap.csv` | Seed'ler arası kare çakışmaları |
-| `results/dev_pool_method5.csv` | 5. yöntemin ortak geliştirme havuzu |
+| `main.ipynb` | Bütün çalışmayı yapan tek notebook |
+| `data_overview.csv` | Tüm karelerin boyut, tip ve yoğunluk istatistikleri |
+| `selected_frames.csv` | 4 seed'in seçilen kareleri (Tablo 1; referans sayısı içermez) |
+| `dev_val_references.csv` | Geliştirme/doğrulama referans hücre sayıları |
+| `experiments.csv` | 4 üyenin bütün kontrollü deneyleri (Tablo 2) |
+| `validation_results.csv` | 5. yöntem adaylarının 4 seed doğrulama sonuçları (Tablo 3) |
+| `final_pipeline.json` | Kilitlenen bütün yöntemler ve seçim kuralı |
+| `test_predictions_locked.csv` | Referanslar okunmadan kaydedilen test tahminleri (60 kare) |
+| `test_results.csv`, `test_summary.csv` | Test sonuçları (Tablo 4) ve özet metrikler (Tablo 5) |
+
+Ek dosyalar:
+
+| Dosya | İçerik |
+|---|---|
+| `seeds/<seed>/` | Seed bazında seçim, referanslar, üyenin deneyleri, doğrulaması ve yöntemi (`method_<üye>.json`) |
+| `results/seed_overlap.csv`, `dev_pool_method5.csv` | Seed'ler arası çakışmalar ve 5. yöntemin geliştirme havuzu |
 | `results/cross_seed_validation.csv` | Çapraz seed doğrulama matrisi |
-| `results/method5_tuning_pool.csv`, `method5_selection.csv` | 5. yöntemin ayarı ve seçimi (Tablo 3) |
-| `results/final_pipeline.json` | Kilitlenen bütün yöntemler ve seçim kuralı |
-| `results/test_predictions_locked.csv` | Referanslar okunmadan kaydedilen test tahminleri |
-| `results/test_results.csv`, `test_summary.csv` | Test sonuçları (Tablo 4) ve özet metrikler (Tablo 5) |
-| `results/temporal_analysis.csv`, `figures/fig5_temporal_<seed>.png` | Zamansal analiz |
+| `results/method5_tuning_pool.csv` | 5. yöntemin ortak havuzdaki parametre taraması |
+| `results/validation_vs_test.csv`, `temporal_analysis.csv` | Doğrulama/test karşılaştırması ve zamansal analiz |
+| `figures/` | Veri görüntüsü içermeyen grafikler (deneyler, çapraz seed matrisi, zamansal grafikler) |
