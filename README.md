@@ -129,4 +129,5 @@ Ek dosyalar:
 | `results/cross_seed_validation.csv` | Çapraz seed doğrulama matrisi |
 | `results/method5_tuning_pool.csv` | 5. yöntemin ortak havuzdaki parametre taraması |
 | `results/validation_vs_test.csv`, `temporal_analysis.csv` | Doğrulama/test karşılaştırması ve zamansal analiz |
-| `figures/` | Veri görüntüsü içermeyen grafikler (deneyler, çapraz seed matrisi, zamansal grafikler) |
+| `figures/` | Veri görüntüsü içermeyen grafikler: Şekil 1 (akış diyagramı), deneyler, çapraz seed matrisi, Şekil 5 (zamansal) |
+| `rapor_sekilleri.py` | Rapor şekilleri (Şekil 1–4, 6 ve sekans kayması). Kilitli yöntemleri kullanır, sonuç değiştirmez. Veri görüntüsü içeren şekiller `figures_report/` klasörüne yazılır ve GitHub'a yüklenmez |
