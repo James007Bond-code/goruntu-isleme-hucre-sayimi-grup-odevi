@@ -15,7 +15,7 @@ Seed kuralı (ödev Bölüm 3): öğrenci numarasının son 5 hanesi + 2026.
 | İlkin Urcan | 244329078 | 31104 | Morfoloji + distance transform + watershed (temas eden hücreleri ayırma) | `src/experiments/ilkin.py` |
 | Aslıhan Semiz Varlı | 254329024 | 31050 | K-means segmentasyonu + LoG blob tespiti | `src/experiments/aslihan.py` |
 
-**Tek notebook:** [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main_grup.ipynb) `main_grup.ipynb`. Bütün üyelerin deneyleri, çapraz seed analizi, **5. yöntem**, kilit, test ve zamansal analiz bu notebook'ta çalışır.
+**Tek notebook** (ödevdeki `main.ipynb` karşılığı): [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main_grup.ipynb) `main_grup.ipynb`. Bütün üyelerin deneyleri, çapraz seed analizi, **5. yöntem**, kilit, test ve zamansal analiz bu notebook'ta çalışır.
 Her üye yalnızca kendi `src/experiments/<üye>.py` dosyasındaki deney listesini düzenler; böylece katkılar commit geçmişinde ayrı görünür.
 
 ## Çalışmanın sorusu
@@ -78,7 +78,7 @@ Tablolar: `validation_results.csv` (Tablo 3), `test_results.csv` (Tablo 4), `tes
 
 ## Kurulum ve çalıştırma
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi/blob/main/main_grup.ipynb) linkiyle `main_grup.ipynb` Colab'da açılır. İlk hücre repoyu klonlar,
-ikinci hücre veri setini resmî adresten `data/` klasörüne indirir. Yerelde çalıştırmak için `pip install -r requirements.txt` yeterlidir.
+ikinci hücre veri setini resmî adresten `data/` klasörüne indirir. Yerelde çalıştırmak için Python 3.10+ ve `pip install -r requirements.txt` yeterlidir (sürümler `requirements.txt` içinde sabittir).
 
 Notebook **iki aşamada** çalışır:
 1. **1. aşama – *Tümünü çalıştır*:** Bölüm 0–7 çalışır: seçim doğrulanır, deneyler ve doğrulama yapılır, 5. yöntem seçilir,
@@ -89,6 +89,16 @@ Notebook **iki aşamada** çalışır:
    Bölüm 11, `test_commit.zip` dosyasını indirir; bu da **test commit'i** olarak gönderilir.
 
 Test referansları (sekans 02) kodla korunur: kilit dosyası yoksa ya da commit edilmemişse okunamaz.
+
+**Tek komutla çalıştırma (alternatif):** Colab'da boş bir notebook'ta şu hücre, repoyu temiz klonlayıp `main_grup.ipynb`'nin bütün hücrelerini aynı sırayla çalıştırır (`calistir.py`):
+```python
+%cd /content
+!rm -rf goruntu-isleme-hucre-sayimi-grup-odevi
+!git clone -q https://github.com/James007Bond-code/goruntu-isleme-hucre-sayimi-grup-odevi.git
+%cd goruntu-isleme-hucre-sayimi-grup-odevi
+!python calistir.py
+```
+Rapor şekilleri yalnızca `python rapor_sekilleri.py` ile de üretilebilir (veri görüntüsü içeren şekiller `figures_report.zip` olarak oluşur, GitHub'a yüklenmez).
 
 - Ortak kod `src/` altındadır: `config.py` (üyeler, seed'ler, yollar), `data.py`, `selection.py`, `pipeline.py`
   (tek `run_pipeline` fonksiyonu), `evaluation.py` (metrikler, deney tabloları, kilit), `experiments/<üye>.py`.
