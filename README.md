@@ -137,6 +137,7 @@ Ek dosyalar:
 | `seeds/<seed>/` | Seed bazında seçim, referanslar, üyenin deneyleri, doğrulaması ve yöntemi (`method_<üye>.json`) |
 | `results/seed_overlap.csv`, `dev_pool_method5.csv` | Seed'ler arası çakışmalar ve 5. yöntemin geliştirme havuzu |
 | `results/cross_seed_validation.csv` | Çapraz seed doğrulama matrisi |
+| `results/thresholding_seed14048_individual.csv` | Sabit eşik (T=45), Otsu ve adaptif eşiğin aynı ön işlemeyle (CLAHE + Gauss 5×5) karşılaştırması. Kaynak: bireysel çalışma, seed 14048'in aynı geliştirme kareleri, kilit öncesi |
 | `results/morphology_seed14048_individual.csv` | Tek başına erosion, dilation, opening, closing ve SE boyutu karşılaştırması. Kaynak: bireysel çalışma ([ayrı repo](https://github.com/James007Bond-code/goruntu-isleme-hucre-sayimi-254312022-suleymanBalsak)), seed 14048'in aynı geliştirme kareleri, aynı pipeline kodu, kilit öncesi |
 | `results/method5_tuning_pool.csv` | 5. yöntemin ortak havuzdaki parametre taraması |
 | `results/validation_vs_test.csv`, `temporal_analysis.csv` | Doğrulama/test karşılaştırması ve zamansal analiz |

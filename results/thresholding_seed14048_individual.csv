@@ -1,0 +1,4 @@
+Kaynak,Deney_ID,Aciklama,Referans,Degisen,Yogunluk,Filtre,Segmentasyon,Morfoloji,Ayirma,Parametreler,Dev_MAE,Dev_RMSE,Dev_Bias,Sure_ms
+"bireysel çalışma (seed 14048, aynı geliştirme kareleri, kilit öncesi)",E07,CLAHE + Gauss 5×5,E04,filtre,clahe,gaussian,otsu,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, min_area=100",5.9,6.442,-5.9,76.5
+"bireysel çalışma (seed 14048, aynı geliştirme kareleri, kilit öncesi)",E10,Sabit eşik T=45,E07,segmentasyon,clahe,gaussian,fixed,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, fixed_thresh=45, min_area=100",5.6,6.164,-5.6,22.7
+"bireysel çalışma (seed 14048, aynı geliştirme kareleri, kilit öncesi)",E11,"Adaptif Gauss (blok=71, C=-12)",E07,segmentasyon,clahe,gaussian,adaptive,none,cc,"clahe_clip=3.0, clahe_grid=[8, 8], filter_k=5, adapt_block=71, adapt_c=-12, min_area=100",2.8,3.13,0.2,133.1
